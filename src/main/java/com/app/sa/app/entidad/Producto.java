@@ -23,12 +23,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Producto {
     @Id
     private String id;
-    private String codigo;
-    private String categoria;
-    private String descripcion;
+    private String nomprod;
     private int precio;
-    private boolean disponibilidad;
+    private String categoria;
     private int stock;
-    private String ruta;     
+    private String descripcion;       
     
 }

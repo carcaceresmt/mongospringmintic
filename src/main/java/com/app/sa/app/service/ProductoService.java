@@ -37,13 +37,13 @@ public class ProductoService {
     public Producto updateProducto(Producto producto){
         
        Producto existeProducto=getProducto(producto.getId());
-       existeProducto.setCodigo(producto.getCodigo());
-       existeProducto.setCategoria(producto.getCategoria());
-       existeProducto.setDescripcion(producto.getDescripcion());
+       existeProducto.setId(producto.getId());
+       existeProducto.setNomprod(producto.getNomprod());
        existeProducto.setPrecio(producto.getPrecio());
-       existeProducto.setDisponibilidad(producto.isDisponibilidad());
-       existeProducto.setStock(producto.getStock());
-       existeProducto.setRuta(producto.getRuta());
+       existeProducto.setCategoria(producto.getCategoria());
+        existeProducto.setStock(producto.getStock());
+       existeProducto.setDescripcion(producto.getDescripcion());
+       
        return repository.save(existeProducto);
     }
     
