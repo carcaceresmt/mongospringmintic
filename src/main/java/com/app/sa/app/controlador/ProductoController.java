@@ -41,7 +41,23 @@ public class ProductoController {
     @GetMapping("{id}")    
     public Producto findCargosId(@PathVariable String id){
         return service.getProducto(id);
-    }    
+    }   
+    
+    @GetMapping("/busqueda/{categoria}")    
+    public List<Producto> findCategoria(@PathVariable String categoria){
+        return service.getCategoriaMarca(categoria);
+    }
+    
+    @GetMapping("/filtro/lte/{precio}")    
+    public List<Producto> findCategoria(@PathVariable int precio){
+        return service.getProductoPrecioMenor(precio);
+    }
+    
+    @GetMapping("/filtro/entre/{preciomin}/{preciomax}")    
+    public List<Producto> findCategoria(@PathVariable int preciomin,
+                                        @PathVariable int preciomax){
+        return service.getProductoEntrePrecio(preciomin, preciomax);
+    }
     
     @PostMapping("/save")
     public ResponseEntity addProducto(@RequestBody Producto producto){
@@ -58,6 +74,12 @@ public class ProductoController {
     @DeleteMapping("/{id}")
       public ResponseEntity deleteProducto(@PathVariable String id){
            service.deleteProducto(id);
+           return ResponseEntity.status(204).build();
+      }
+      
+      @DeleteMapping("/all")
+      public ResponseEntity deleteProductoAll(){
+           service.deleteAll();
            return ResponseEntity.status(204).build();
       }
     

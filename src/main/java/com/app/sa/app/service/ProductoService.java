@@ -50,5 +50,21 @@ public class ProductoService {
     public void deleteProducto(String id){
         repository.deleteById(id);
        
-    }      
+    }    
+    
+    public void deleteAll(){
+        repository.deleteAll();
+    }
+    
+    public List<Producto> getCategoriaMarca(String categoria){
+        return repository.getProductoMarca(categoria);
+    }
+    public List<Producto> getProductoPrecioMenor(int precio){
+        return repository.getProductoPrecioMenor(precio);
+    }
+    
+    public List<Producto> getProductoEntrePrecio(int preciomin,int preciomax){
+        return repository.getProductoEntrePrecio(preciomin, preciomax);
+    }
+    
 }
